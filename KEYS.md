@@ -1,3 +1,6 @@
+## General
+leader key          `<sp>`
+
 ## Formatting and linting
 goto definition     `gd`
 
