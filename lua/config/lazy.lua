@@ -33,7 +33,7 @@ require("lazy").setup({
 })
 
 -- Setup lualine
-require("lualine").setup {
-options = { theme = 'auto' }
-}
+--require("lualine").setup {
+--options = { theme = 'auto' }
+--}
 
