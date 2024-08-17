@@ -17,6 +17,9 @@ return {
 				"black", -- formatter
 				"isort", -- organize imports
 				"taplo", -- LSP for toml (for pyproject.toml files)
+				"clangd", -- LSP for c/c++
+				"cpplint", -- linter for c/c++
+				"clang-format", -- formatter for c/c++
 			},
 		},
 	},
@@ -43,6 +46,10 @@ return {
 
 			-- setup taplo with completion capabilities
 			require("lspconfig").taplo.setup({
+				capabilities = lspCapabilities,
+			})
+
+			require("lspconfig").clangd.setup({
 				capabilities = lspCapabilities,
 			})
 
@@ -83,6 +90,7 @@ return {
 				-- "inject" is a special formatter from conform.nvim, which
 				-- formats treesitter-injected code. Basically, this makes
 				-- conform.nvim format python codeblocks inside a markdown file.
+				c = { "clang-format" },
 				markdown = { "inject" },
 			},
 			-- enable format-on-save
@@ -213,6 +221,7 @@ return {
 				"ninja",
 				"markdown",
 				"markdown_inline",
+				"c",
 			},
 		},
 	},
@@ -324,13 +333,4 @@ return {
 	},
 }
 
---------------------------------------------------------------------------------
--- SETUP BASIC PYTHON-RELATED OPTIONS
-
--- The filetype-autocmd runs a function when opening a file with the filetype
--- "python". This method allows you to make filetype-specific configurations. In
--- there, you have to use `opt_local` instead of `opt` to limit the changes to
--- just that buffer. (As an alternative to using an autocmd, you can also put those
--- configurations into a file `/after/ftplugin/{filetype}.lua` in your
--- nvim-directory.)
 
