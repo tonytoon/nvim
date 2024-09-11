@@ -9,14 +9,4 @@ vim.opt_local.softtabstop = 4
 -- my stuff isn't complicated enough for folds
 -- vim.opt_local.foldmethod = "indent"
 
-local iabbrev = function(lhs, rhs) vim.keymap.set("ia", lhs, rhs, { buffer = true }) end
--- automatically capitalize boolean values. Useful if you come from a
--- different language, and lowercase them out of habit.
-iabbrev("true", "True")
-iabbrev("false", "False")
 
--- in the same way, we can fix habits regarding comments or None
-iabbrev("--", "#")
-iabbrev("null", "None")
-iabbrev("none", "None")
-iabbrev("nil", "None")
